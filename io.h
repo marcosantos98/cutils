@@ -37,8 +37,10 @@ char *read_file(const char *path, size_t *out_size) {
     DEFER_FTELL(fd, out_size);
     DEFER_FSEEK(fd, 0, SEEK_SET);
 
-    char *res = malloc(sizeof(char) * (*out_size));
+    char *res = malloc(sizeof(char) * (*out_size + 1));
     fread(res, sizeof(char), *out_size, fd);
+    res[*out_size + 1] = 0;
+
     return res;
 
 defer:
