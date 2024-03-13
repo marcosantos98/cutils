@@ -15,8 +15,13 @@ typedef struct
     int cnt;
 } ExVec;
 
-int main(void)
-{
+typedef struct {
+    int *data;
+    int cnt;
+    int cap;
+} numbers;
+
+int main(void) {
 
     Ex a = {
         .i = 69,
@@ -32,7 +37,17 @@ int main(void)
 
     int res = b.i;
 
-    VEC_FREE(vec);
+    numbers items = {0};
 
+    for (int i = 0; i < 100; i++) {
+        VEC_ADD(&items, i);
+    }
+
+    for (int i = 0; i < items.cnt; i++) {
+        printf("%d\n", items.data[i]);
+    }
+
+    VEC_FREE(vec);
+    VEC_FREE(items);
     return res;
 }
