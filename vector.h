@@ -13,6 +13,10 @@
         (vec)->cnt++;                                                              \
     } while (0)
 
+#define VEC_GET(vec, idx) vec.data[idx]
+
+#define VEC_POP(vec) (vec)->data[--(vec)->cnt]
+
 #define VEC_FREE(vec) free(vec.data)
 
 #endif

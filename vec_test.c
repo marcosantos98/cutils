@@ -31,7 +31,7 @@ int main(void) {
     ExVec vec = {0};
     VEC_ADD(&vec, a);
 
-    Ex b = vec.data[0];
+    Ex b = VEC_POP(&vec);
 
     printf("%s\n", b.data);
 
@@ -46,6 +46,8 @@ int main(void) {
     for (int i = 0; i < items.cnt; i++) {
         printf("%d\n", items.data[i]);
     }
+
+    printf("Value at 69 should be 69: %d\n", VEC_GET(items, 69));
 
     VEC_FREE(vec);
     VEC_FREE(items);
