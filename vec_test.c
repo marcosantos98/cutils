@@ -43,6 +43,8 @@ int main(void) {
         VEC_ADD(&items, i);
     }
 
+    VEC_ADD_AT(&items, 98, 1);
+
     for (int i = 0; i < items.cnt; i++) {
         printf("%d\n", items.data[i]);
     }
