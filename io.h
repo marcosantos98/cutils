@@ -41,6 +41,7 @@ char *read_file(const char *path, size_t *out_size) {
     fread(res, sizeof(char), *out_size, fd);
     res[*out_size + 1] = 0;
 
+    fclose(fd);
     return res;
 
 defer:
