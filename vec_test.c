@@ -39,19 +39,21 @@ int main(void) {
 
     numbers items = {0};
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 10; i++) {
         VEC_ADD(&items, i);
     }
 
-    VEC_ADD_AT(&items, 98, 1);
+    VEC_DEL_AT(&items, 5);
 
-    VEC_DEL_AT(&items, 98);
-
-    for (int i = 0; i < items.cnt; i++) {
-        printf("%d\n", items.data[i]);
+    int j = 5;
+    for (int i = 20; i < 25; i++) {
+        VEC_ADD_AT(&items, j, i);
+        j++;
     }
 
-    printf("Value at 69 should be 69: %d\n", VEC_GET(items, 69));
+    for (int i = 0; i < items.cnt; i++) {
+        printf("[%d] %d\n", i, items.data[i]);
+    }
 
     VEC_FREE(vec);
     VEC_FREE(items);
