@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
     const char *path = *argv++;
 
     size_t len;
-    char *content = read_file(path, &len);
+    char *content = read_file_as_cstr(path, &len);
 
     printf("%s content:\n", path);
     printf("%s\n", content);

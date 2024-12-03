@@ -25,7 +25,7 @@
         }                                                                       \
     } while (0)
 
-char *read_file(const char *path, size_t *out_size) {
+char *read_file_as_cstr(const char *path, size_t *out_size) {
 
     FILE *fd = fopen(path, "r");
     if (fd == NULL) {
@@ -39,7 +39,7 @@ char *read_file(const char *path, size_t *out_size) {
 
     char *res = malloc(sizeof(char) * (*out_size + 1));
     fread(res, sizeof(char), *out_size, fd);
-    res[*out_size + 1] = 0;
+    res[*out_size] = 0;
 
     fclose(fd);
     return res;
